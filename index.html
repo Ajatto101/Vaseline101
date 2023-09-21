@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [41.9842, -87.6636],
+              zoom: 4
+          });
+
+          L.tileLayer('https://tile.osm.ch/switzerland/{z}/{x}/{y}.png', {
+               attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 13,
+               minZoom: 13,
+            }).addTo(map);
+
+          var AwardIcon = L.icon({
+              iconUrl: '"C:\Users\obafe\OneDrive\Documents\GES 387 cartography\LAB #2\Award.png"',
+              iconSize:     [30, 30],
+              iconAnchor:   [19, 19],
+              popupAnchor:  [0, -10],
+          });
+
+          var marker1 = L.marker([41.9891, -87.6667], {icon: AwardIcon}).addTo(map);
+          var marker2 = L.marker([41.9646, -87.6589], {icon: AwardIcon}).addTo(map);
+		  var marker3 = L.marker([41.9795, -87.7188], {icon: AwardIcon}).addTo(map);
+
+          var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/en/e/e9/CPSSennHS001.jpg" alt="SENN" width="250">';
+          var pic2 = '<img src="https://cdntrust.s3.us-east-2.amazonaws.com/busines/611addea-cfdc-4f07-879e-44a34698e6d2/0.jpg" alt="CCC" width="250">';
+		  var pic3 = '<img src="https://www.neiu.edu/sites/default/files/styles/feature_image/public/news-images/2021/09/24/LOC-main-campus-22.jpg?itok=EfXd8Mcx" alt="NEIU" width="250">';
+
+          marker1.bindPopup('<p style="color:black; font-weight:bold"> Graduated from SENN </p>' + pic1);
+          marker2.bindPopup('<p style="color:red; font-weight:bold"> Graduated from Truman with Associate degree </p>' + pic2);
+		  marker3.bindPopup('<p style="color:green; font-weight:bold"> Pursuing a bachelors degree at NEIU </p>' + pic3);
+
+        </script>
+   </body>
+</html>
